@@ -25,11 +25,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key-for-development')
 
-DEBUG = os.environ.get('DEBUG', 'True') == 'True'
+# SECURITY WARNING: don't run with debug turned on in production!
+# On Render, DEBUG is False by default. Set an env var to 'True' to enable it for local dev.
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1'] # For local development
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -133,9 +135,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Для интеграции с Telegram (лучше вынести в env)
-TELEGRAM_TOKEN = os.environ.get('TELEGRAM_TOKEN', '8175817830:AAHPma-TnOLs8i1cAx_CCNoYfBbizEX8lLs')
-TELEGRAM_CHAT_ID = os.environ.get('TELEGRAM_CHAT_ID', '927533634')
+# Telegram Integration - Tokens MUST be stored as environment variables
+# IMPORTANT: The old token has been exposed and must be revoked immediately.
+TELEGRAM_TOKEN = os.environ.get('8175817830:AAHPma-TnOLs8i1cAx_CCNoYfBbizEX8lLs')
+TELEGRAM_CHAT_ID = os.environ.get('927533634')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
