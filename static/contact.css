@@ -1,0 +1,146 @@
+/* General styles for the contact section */
+#contact {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Light grey background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+#contact .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.contact-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50; /* Dark blue-grey */
+    font-weight: 600;
+}
+
+.contact-header p {
+    font-size: 1.1rem;
+    color: #7f8c8d; /* Lighter grey */
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Grid layout for contact info and map */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Give a bit more space to the map */
+    gap: 40px;
+    align-items: start;
+}
+
+/* Styling for the contact information block */
+.contact-info {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.contact-method:last-child {
+    margin-bottom: 0;
+}
+
+.contact-method i {
+    font-size: 22px;
+    color: #3498db; /* A nice blue */
+    margin-right: 20px;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: #ecf5ff;
+    border-radius: 50%;
+}
+
+.contact-method div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-method .label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.contact-method a {
+    text-decoration: none;
+    color: #555;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.contact-method a:hover {
+    color: #3498db;
+}
+
+/* Social media links */
+.social-links {
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px solid #ecf0f1; /* Light separator line */
+    display: flex;
+    gap: 15px;
+}
+
+.social-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    font-size: 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.social-link:hover {
+    background-color: #3498db;
+    color: #ffffff;
+    transform: translateY(-3px);
+}
+
+/* Map styling */
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 480px; /* Ensure map has a good height */
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-map iframe {
+        min-height: 350px;
+        margin-top: 20px;
+    }
+}

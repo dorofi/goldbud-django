@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold Bud</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    {% block extra_styles %}{% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Gold Bud</h1>
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-wrapper">
+                <nav class="main-nav">
+                    <a href="/">Strona główna</a>
+                    <a href="/uslugi/">Usługi</a>
+                    <a href="/galeria/">Galeria</a>
+                    <a href="/zamow-wycene/">Zamów wycenę</a>
+                    <a href="/otzyvy/">Opinie</a>
+                    <a href="/kontakty/">Kontakt</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    
+
+    <script src="{% static 'mobile.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

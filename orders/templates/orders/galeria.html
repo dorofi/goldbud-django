@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+    <div class="header-box">
+        <h1>Nasza Galeria</h1>
+        <p>Zapraszamy do zapoznania się z naszych realizacjami budowlanymi.</p>
+    </div>
+</header>
+<div style="text-align: left; margin-top: 20px;">
+    <a href="/" class="back-btn">← Powrót do strony głównej</a>
+</div>
+<div class="gallery-container">
+    {% for img in images %}
+    <div class="gallery-item">
+        <img src="{{ img.url }}" alt="remont mieszkania" class="gallery-image">
+    </div>
+    {% endfor %}
+</div>
+<!-- Модальное окно -->
+<div id="modal" class="modal">
+    <span class="close" id="close">&times;</span>
+    <img class="modal-content" id="modal-img">
+</div>
+<button id="backToTop" class="back-to-top-btn">&#8593;</button>
+{% endblock %}
+{% block extra_scripts %}
+<script src="/static/galeria.js"></script>
+{% endblock %}
+{% block extra_styles %}
+<link rel="stylesheet" href="/static/galeria.css">
+{% endblock %}

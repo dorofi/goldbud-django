@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block extra_styles %}
+    <link rel="stylesheet" href="/static/zamow-wycene.css">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h2><i class="fas fa-file-signature"></i> Zamów wycenę</h2>
+    <form method="post" enctype="multipart/form-data" autocomplete="off">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div class="input-group">{{ form.name.label_tag }}{{ form.name }}</div>
+        <div class="input-group">{{ form.address.label_tag }}{{ form.address }}</div>
+        <div class="input-group">{{ form.phone.label_tag }}{{ form.phone }}</div>
+        <div class="input-group">{{ form.details.label_tag }}{{ form.details }}</div>
+        <div class="input-group">
+            {{ form.photos.label_tag }}
+            <div class="file-input-wrapper">
+                <input type="file" name="photos" id="id_photos" multiple onchange="updateFileLabel(this)">
+                <span class="file-input-label" id="file-label-text"><i class="fas fa-cloud-upload-alt"></i> Wybierz pliki lub przeciągnij je tutaj</span>
+            </div>
+        </div>
+        <button type="submit" class="button"><i class="fas fa-paper-plane"></i> Wyślij</button>
+    </form>
+</div>
+{% endblock %}
+{% block extra_scripts %}
+<script>
+function updateFileLabel(input) {
+    const fileLabel = document.getElementById('file-label-text');
+    if (input.files && input.files.length > 0) {
+        if (input.files.length === 1) {
+            fileLabel.innerHTML = `<i class="fas fa-check-circle"></i> ${input.files[0].name}`;
+        } else {
+            fileLabel.innerHTML = `<i class="fas fa-check-circle"></i> Wybrano ${input.files.length} plików`;
+        }
+    } else {
+        fileLabel.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Wybierz pliki lub przeciągnij je tutaj';
+    }
+}
+</script>
+{% endblock %}
